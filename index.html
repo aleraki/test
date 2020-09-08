@@ -9,6 +9,8 @@
   <div id="app">
     {{ message }}
   </div>
+  <div id="app2">
+    <p v-if="error">エラーです</p>  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -16,6 +18,12 @@
       el:"#app",
       data:{
         message:"aki"
+      }
+    });
+    var app2 = new Vue({
+      el:"#app2",
+      data:{
+        error: true
       }
     });
   </script>
