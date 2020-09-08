@@ -20,6 +20,17 @@
     <p v-bind:class="error_class">エラーです</p>
     <p v-bind:class="blue_class">エラーです</p>
   </div>
+  <div id="app1">
+    <p>{{ now }}</p>
+    <button v-on:click="time">現在時刻を表示する</button>
+  </div>
+  <div id="app2">
+    <ul>
+      <li v-for="pref in prefs">
+        {{ pref.name }}
+      </li>
+    </ul>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -30,6 +41,33 @@
         error: true,
         error_class:"error",
         blue_class:"blue"
+      }
+    });
+    var app1 = new Vue({
+      el:"#app1",
+      data: {
+        now:"00:00:00"
+      },
+      methods: {
+        time: function(e) {
+          var date = new Date();
+
+          this.now = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+      }
+    });
+    var app2 = new Vue({
+      el:"#app2",
+      data:{
+        prefs:[
+          { name:'北海道'},
+          { name:'青森県'},
+          { name:'岩手県'},
+          { name:'宮城県'},
+          { name:'秋田県'},
+          { name:'山形県'},
+          { name:'福島県'},
+        ]
       }
     });
   </script>
