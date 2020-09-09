@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <div id="app1">
+    <button v-on:click="click">クリック</button>
+    {{ name }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el:"#app",
+    data:{
+      message:"テスト"
+    }
+  });
+  var app1 = new Vue({
+    el:"#app1",
+    data:{
+      name:1
+    },
+    methods:{
+      click: function(e){
+        this.name +=
+        1
+      }
+    }
+  });
+</script>
+</body>
+</html>
